@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+  <!--{{text1}}-->
+   <p ng-bind="text1"></p>
+   <input type="button" ng-click="changeText()" value="ChangeText" id="ChTxt">
+   <button id="rfTxt" ng-click="refreshTxt()" ng-disabled="true">Refresh</button>
+   </div>
+  <script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope)
+    {
+        var i1=""
+      $scope.text1="Hai!";
+     i1=$scope.text1;
+     
+           $scope.changeText=function(){
+              
+        $scope.text1="How are U?";
+      angular.element(document.getElementById('ChTxt'))[0].disabled = true;
+      angular.element(document.getElementById('rfTxt'))[0].disabled = false; 
+      }
+      $scope.refreshTxt=function(){
+      
+        $scope.text1=i1;
+        angular.element(document.getElementById('ChTxt'))[0].disabled = false;
+        angular.element(document.getElementById('rfTxt'))[0].disabled = true; 
+      }
+    
+    });
+   
+  </script>
+</body>  
+</html>

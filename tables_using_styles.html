@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+  table, th, td{
+    border:1px solid grey;
+    border-collapse:collapse;
+    padding:5px;
+  }
+  th{
+    background-color:lightgreen;
+  }
+  
+  table tr:nth-child(odd)
+  {
+    background-color:lightblue;
+  }
+  table tr:nt-child(even)
+  {
+    background-color:pink;
+  }
+</style>
+<body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+      <tr ng-repeat="i1 in custDetails">
+        <td>{{i1.Name}}</td>
+        <td>{{i1.City}}</td>
+        <td>{{i1.Country}}</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope)
+    {
+      $scope.custDetails=[ 
+        {"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"},
+        {"Name":"Ana Trujillo Emparedados y helados","City":"México D.F.","Country":"Mexico"},
+        {"Name":"Antonio Moreno Taquería","City":"México D.F.","Country":"Mexico"},
+        {"Name":"Around the Horn","City":"London","Country":"UK"},
+        {"Name":"B's Beverages","City":"London","Country":"UK"},
+        {"Name":"Berglunds snabbköp","City":"Luleå","Country":"Sweden"},
+        {"Name":"Blauer See Delikatessen","City":"Mannheim","Country":"Germany"},
+        {"Name":"Blondel père et fils","City":"Strasbourg","Country":"France"}, 
+        {"Name":"Bólido Comidas preparadas","City":"Madrid","Country":"Spain"},
+        {"Name":"Bon app'","City":"Marseille","Country":"France"}, 
+        {"Name":"Bottom-Dollar Marketse","City":"Tsawassen","Country":"Canada"},
+        {"Name":"Cactus Comidas para llevar","City":"Buenos Aires","Country":"Argentina"},
+        {"Name":"Centro comercial Moctezuma","City":"México D.F.","Country":"Mexico"},
+        {"Name":"Chop-suey Chinese","City":"Bern","Country":"Switzerland"},
+        {"Name":"Comércio Mineiro","City":"São Paulo","Country":"Brazil"}
+        ];
+    });
+  </script>
+</body>
+</html>

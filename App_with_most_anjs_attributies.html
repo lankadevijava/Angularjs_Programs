@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+          
+        <form>
+   
+         <p>First Name: <input type="text" ng-model="firstName" id="fname" name="fname">
+         Last Name:<input type="text" ng-model="lastname" id="lname" name="lname"></p>
+         <p>Mobile No:<input type="text" ng-model="mobNo" id="mobNo" name="mobNo">
+         Land Line:<input type="text" ng-model="llNo" id="llNo" name="llNo"></p>
+         <p>Address:<input type="text" ng-model="adrsNo" id="adrsNo" name="adrsNo">
+         City:<select ng-model="city" ng-options="c for c in cities"></select></p>
+         <P>Higest Education:<input type="radio" ng-model="edu" value="btech"  >B-Tech
+                             <input type="radio" ng-model="edu" value="mba" >MBA
+                             <input type="radio" ng-model="edu" value="bca" >BCA</P>
+      
+        <p> List of Courses:
+        <!-- <label  name="l1" ng-repeat="c in courseList" for="{{c}}"> 
+         <input type="checkbox" checklist-model="courseList1"  checklist-value="c">{{c}} </label>-->
+         
+         <lable><input type=checkbox ng-model="chk1" ng-true-value="'Java'" ng-false-value="''">Java</lable>
+         <lable><input type=checkbox ng-model="chk2" ng-true-value="'JQuery'" ng-false-value="''">JQuery</lable>
+         <lable><input type=checkbox ng-model="chk3" ng-true-value="'AngularJS'" ng-false-value="''">AngularJS</lable>
+         </p>
+       
+      
+      <!-- <label ng-model="lbseltd" ng-repeat="list in courseList" for="{{list}}">
+         <input type="checkbox"  placeholder="list" ng-model="sellist" ng-true-value="list">
+             {{list}} </label>-->
+        
+       
+     
+                         
+         
+ 
+         <p>Additional skills:<input type="textarea"  ng-model="txtArea" style="height:45px; width:200px; overflow:scroll;"></p>
+         
+   </form>
+   <form>
+      Name:{{firstName+lastname}}
+      <p>MobileNo:{{mobNo}} LandLine :{{llNo}}</p>
+      <p>Address:{{adrsNo}} City:{{city}}</p>
+      Education:{{edu}}
+          Courses:
+          <h ng-show="chk1">{{chk1}}</h>
+          <h ng-show ="chk2">{{chk2}} </h>
+          <h ng-show="chk3"> {{chk3}}</h>  
+      additional Skills:{{txtArea}}
+
+   </form>
+    </div>
+<script>
+  var app=angular.module("myApp",[]);
+  app.controller("myCtrl",function($scope){
+    $scope.cities=["Hyderabad","Mumbai","Chennai"];
+    $scope.courseList=["Java","jQuery","Ajax"];
+   
+   /*$scope.chk1="Java";
+   $scope.chk2="jQuery";
+    $scope.chk3="Ajax";
+*/
+   
+  });
+</script>      
+ 
+</body>
+</html>

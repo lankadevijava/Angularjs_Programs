@@ -1,0 +1,28 @@
+<!doctype html>
+<html >
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+ 
+<body ng-app="myApp">
+  
+ <form ng-controller="myCtrl">
+   <h>Which is your favorite?</h>
+      <p>  <label ng-repeat="name in names" ng-model="xx" >
+      <br>
+       <input type="radio"
+              ng-model="my.favorite"
+             value={{name}} 
+                        > {{name}}
+     </label>
+     </p>
+   <div>You chose {{my.favorite}}</div>
+ </form>
+ <script>
+   angular.module('myApp', [])
+     .controller('myCtrl', ['$scope', function($scope) {
+       $scope.names = ['pizza', 'unicorns', 'robots'];
+       $scope.my = { favorite: 'unicorns' };
+     }]);
+</script>
+</body>
+</html>
+

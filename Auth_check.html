@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>Enter UserName :<input type="text" ng-model="userName" ></p>
+    <p> Enter Password : <input type="password" ng-model="pwdName" name="pwdName" id="passwordn"></p>
+      <button ng-click="subUser()" id="submitUser">submit
+       
+      </button>
+       <p>{{errortext}}</p>
+       <p>{{errorpwd}}</p>
+       <p>{{anpg}}</p>
+    </div>
+   <script>
+      var app=angular.module("myApp",[]);
+      app.controller("myCtrl",function($scope,$location)
+      {
+        $scope.subUser=function($location){
+        var uname="global";
+        var pwd="e001";
+        $scope.errortext="";
+        $scope.errorpwd="";
+        if($scope.userName!=uname)
+        {
+          $scope.errortext="please enter correct username.";
+        }
+        else{
+          $scope.errortext="";
+        }
+        if($scope.pwdName!=pwd)
+        {
+          $scope.errorpwd="please enter correct password.";
+        }
+        else{
+          $scope.errorpwd="";
+        }
+        
+        if($scope.userName==uname && $scope.pwdName==pwd )
+        {
+         $scope.anpg="You have enered another page";
+          $location.url="file:///C:/Users/Azeez%20GIS/Desktop/vasantha/hel.html";
+        }
+        
+        }
+      });
+    </script>
+  </body>
+</html>

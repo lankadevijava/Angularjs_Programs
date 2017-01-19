@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <select ng-model="choosenItem" ng-options="key for (key,value) in items">
+        
+      </select>
+      <p>The selected item is :{{choosenItem}}</p>
+    </div>
+    <script>
+      var app=angular.module("myApp",[]);
+      app.controller("myCtrl",function($scope){
+        $scope.items={
+          item01:"Rice",
+          item02:"wheatflour",
+          item03:"oil"
+        };
+      });
+    </script>
+  </body>
+
+</html>

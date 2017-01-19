@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <select ng-model="seltext" ng-options="i for i in items">
+        
+      </select>
+      <p><Label>The Selected Item is:{{seltext}}</Label></p>
+      
+    </div>
+  <script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope)
+    {
+      $scope.items = ['Marigold','50-50','Good day','Hi-Fi'];
+    });
+  </script>  
+    
+  </body>
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <p>Input number1:<input type="text" ng-model="inputtxt" id="inputtxt"></p>
+    <p>Input number2:<input type="text" ng-model="inputtxt2" id="inputtxt2"></p>
+   <p>Result Number:<input type="text" ng-model="resvalue"></p>
+   <p><button ng-click="addNum()" >+</button>
+    <button ng-click="subNum()" >-</button>
+    <button ng-click="mulNum()" >*</button>
+    <button ng-click="divNum()" >/</button></p>
+    <button ng-click="clrscr()">Clear</button>
+    <p>{{errortxt}}</p>
+  </div>
+  <script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+      $scope.addNum = function(){
+         $scope.errortxt = "";
+       $scope.resvalue = $scope.inputtxt*1 + $scope.inputtxt2*1;
+      }
+       $scope.subNum = function(){
+          $scope.errortxt = "";
+       $scope.resvalue = $scope.inputtxt - $scope.inputtxt2;
+      }
+       $scope.mulNum = function(){
+          $scope.errortxt = "";
+       $scope.resvalue = $scope.inputtxt * $scope.inputtxt2;
+      }
+       $scope.divNum = function(){
+          $scope.errortxt = "";
+         if($scope.inputtxt2 == 0){
+         $scope.errortxt = "input number2 cannot be 0";
+         }
+         else{
+       $scope.resvalue = $scope.inputtxt / $scope.inputtxt2;
+         }
+      }
+      $scope.clrscr=function(){
+        $scope.inputtxt="";
+        $scope.inputtxt2="";
+        $scope.resvalue="";
+      }
+    
+    });
+  </script>
+  </body>
+
+</html>
